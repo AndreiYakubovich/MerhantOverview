@@ -1,6 +1,6 @@
 <p>Merchants</p>
 <mat-sidenav-container class="merchants">
-  <mat-sidenav mode="side" opened [fixedInViewport]="true">
+  <mat-sidenav  mode="side"  opened [fixedInViewport]="true" class = "mat-sidenav">
     <p>Merchants</p>
     <mat-nav-list>
       <a mat-list-item routerLink="/transactions/{{merchant.merchant_id}}" *ngFor="let merchant of merchants">

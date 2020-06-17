@@ -14,15 +14,7 @@ export class MerchantsService {
   constructor(
     private http: HttpClient) { }
 
-  getMerchants(): Observable<Merchant[]> {
-    // return this.http.get<Merchant[]>(this.merchantUrl});
-
-    let merchants = [{ merchant_id: 'A1201', name: 'Merchant1' }, { merchant_id: 'A1203', name: 'Merchant2' }]
-    return new Observable<Merchant[]>(subscriber => {
-      subscriber.next(merchants);
-      setTimeout(() => {
-        subscriber.complete();
-      }, 500);
-    });
+  getMerchants(): Observable<Merchant[]> {    
+    return this.http.get<Merchant[]>(this.merchantUrl);
   }
 }

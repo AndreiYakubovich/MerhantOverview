@@ -4,7 +4,7 @@
 //https://client.azureedge.net/
 export const environment = {
   production: false,
-  apiUrl: 'https://selinafinance-assets.azureedge.net/source'
+  apiUrl: 'http://localhost:3000'
 };
 
 /*
