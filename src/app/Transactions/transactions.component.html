@@ -1,0 +1,59 @@
+
+<h1>Transactions</h1>
+
+<div layout="row" style="display: flex; justify-content: space-around;">
+  <div layout="column" class="column" >
+    <div flex="66" flex-offset="15">
+      Count
+    </div>
+    <div flex="66" flex-offset="15">
+      {{summary.count}}
+    </div>
+  </div>
+  <div layout="column" class="column">
+    <div flex="66" flex-offset="15">
+      Total
+    </div>
+    <div flex="66" flex-offset="15">
+      {{summary.total | currency:'GBP':'symbol':'0.0-0'}}
+    </div>
+  </div>
+  <div layout="column" class="column">
+    <div flex="66" flex-offset="15">
+      Subsidy
+    </div>
+    <div flex="66" flex-offset="15">
+      {{summary.subsidy | currency:'GBP':'symbol':'0.2-2'}}
+    </div>
+  </div>
+
+  <div id="chart" [hidden] = "!chartOptions.ready"> 
+    <apx-chart 
+      [series]="chartOptions.series"
+      [chart]="chartOptions.chart"
+      [labels]="chartOptions.labels"
+      [responsive]="chartOptions.responsive"
+    ></apx-chart>
+  </div>
+  
+</div>
+
+<mat-table [dataSource]="transactions" class="mat-elevation-z8" style="margin-top:1em">
+    <ng-container matColumnDef="description">
+        <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="date">
+        <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.date | date:'yyyy-MM-dd HH:mm' }} </mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="price">
+        <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
+      </ng-container>    
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

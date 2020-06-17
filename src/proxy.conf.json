@@ -1,0 +1,7 @@
+{
+    "api": {
+        "target": "https://selinafinance-assets.azureedge.net",
+        "secure": false,
+        "changeOrigin": true
+    }
+}
